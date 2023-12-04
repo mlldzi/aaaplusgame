@@ -1,7 +1,8 @@
 import math
 import pygame
-from bullet import Bullet
 import time
+import sys
+from bullet import Bullet
 
 
 class Player:
@@ -15,6 +16,7 @@ class Player:
         self.bullets = []
         self.last_shot_time = 0
         self.clock = clock
+        self.health = 3
 
     def move(self, center_x, center_y):
         keys = pygame.key.get_pressed()
@@ -41,3 +43,4 @@ class Player:
             return [bullet1]
         else:
             return []
+

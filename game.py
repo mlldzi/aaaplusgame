@@ -1,9 +1,8 @@
 import pygame
 import math
-
-from bullet import Bullet
 from stars import StarBackground
-from enemies_spawning import EnemyHandler
+from enemies_handler import EnemyHandler
+from enemies_spawning import EnemySpawning
 from player import Player
 
 
@@ -19,11 +18,12 @@ class Game:
         self.WHITE = (255, 255, 255)
 
         self.player_size = 50
-        self.player_x = self.size // 2 # стартовые координаты, потом использую координаты из класса игрока
+        self.player_x = self.size // 2  # стартовые координаты, потом использую координаты из класса игрока
         self.player_y = self.size - 100
         self.player_speed = 3
 
         self.max_enemies = 10
+        self.enemies = []
 
         self.bullets = []
         self.bullet_speed = 20
@@ -36,8 +36,10 @@ class Game:
         self.scaling_factor = 0.02
 
         self.background = StarBackground(self.size)
-        self.enemy_handler = EnemyHandler(self.size, 30, 3, 6, 200, 2000)
-        self.player = Player(self.player_size, self.player_x, self.player_y, self.player_speed, self.bullet_speed, self.bullet_cooldown_time, self.clock)
+        self.enemy_spawning = EnemySpawning(self.size, 30, 3, 6, 200, 2000, self.enemies)
+        self.enemy_handler = EnemyHandler(self.size, 30, 3, 6, 200, 2000, self.enemies)
+        self.player = Player(self.player_size, self.player_x, self.player_y, self.player_speed, self.bullet_speed,
+                             self.bullet_cooldown_time, self.clock)
 
     def calculate_distance_to_center(self):
         dx = abs(self.size // 2 - self.player.x)
@@ -55,13 +57,6 @@ class Game:
             scaling_factor = self.scaling_factor * percentage
             enemy.size = 30 * (1 - scaling_factor)
 
-    def move_enemies(self):
-        self.enemy_handler.move_enemies()
-        self.scale_objects()
-
-    def check_enemy_collisions(self):
-        self.enemy_handler.check_enemy_collisions(self.bullets)
-
     def handle_events(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
@@ -71,11 +66,18 @@ class Game:
                 return False
         return True
 
+    def move_enemies(self):
+        self.enemy_handler.move_enemies()
+        self.scale_objects()
+
+    def check_enemy_collisions(self):
+        self.enemy_handler.check_enemy_collisions_bullet(self.bullets)
+
     def handle_enemy_spawning(self):
-        self.enemy_handler.handle_enemy_spawning()
+        self.enemy_spawning.handle_enemy_spawning()
 
     def handle_wave_transition(self):
-        self.enemy_handler.handle_wave_transition()
+        self.enemy_spawning.handle_wave_transition()
 
     def update_background(self):
         self.background.update(self.clock.get_time() / 1000)

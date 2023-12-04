@@ -23,5 +23,5 @@ def render_game(game):
         else:
             pygame.draw.circle(game.window, game.WHITE, (int(bullet.x), int(bullet.y)), bullet.radius)
 
-    for enemy in game.enemy_handler.enemies:
+    for enemy in game.enemies:
         pygame.draw.circle(game.window, game.WHITE, (int(enemy.x), int(enemy.y)), int(enemy.size))
