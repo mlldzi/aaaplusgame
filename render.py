@@ -25,3 +25,12 @@ def render_game(game):
 
     for enemy in game.enemies:
         pygame.draw.circle(game.window, game.WHITE, (int(enemy.x), int(enemy.y)), int(enemy.size))
+
+    heart_image = pygame.image.load(os.path.join(os.path.dirname(__file__), "heart.png"))
+    heart_image = pygame.transform.scale(heart_image, (50, 50))
+    heart_padding = 35
+    for i in range(game.player.health):
+        heart_x = 10 + i * heart_padding
+        heart_y = 10
+        heart_rect = pygame.Rect(heart_x, heart_y, 50,50)
+        game.window.blit(heart_image, heart_rect)

@@ -24,10 +24,7 @@ class EnemySpawning:
     def spawn_new_enemy(self):
         enemy_x = self.wave_x
         enemy_y = self.wave_y
-        distance_to_center = math.sqrt((self.size // 2 - enemy_x) ** 2 + (self.size // 2 - enemy_y) ** 2)
-        scaling_factor = 0.005
-        enemy_size = self.enemy_size * (1 - scaling_factor * (distance_to_center / (self.size // 2)) ** 2)
-        self.enemies.append(Enemy(enemy_x, enemy_y, enemy_size, self.enemy_speed, self.size // 2, self.size // 2))
+        self.enemies.append(Enemy(enemy_x, enemy_y, self.enemy_size, self.enemy_speed, self.size // 2, self.size // 2))
         self.enemies_spawned += 1
 
     def handle_enemy_spawning(self):

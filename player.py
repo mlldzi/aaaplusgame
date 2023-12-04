@@ -1,7 +1,6 @@
 import math
 import pygame
 import time
-import sys
 from bullet import Bullet
 
 
@@ -16,7 +15,7 @@ class Player:
         self.bullets = []
         self.last_shot_time = 0
         self.clock = clock
-        self.health = 3
+        self.health = 7
 
     def move(self, center_x, center_y):
         keys = pygame.key.get_pressed()
@@ -38,7 +37,7 @@ class Player:
     def create_bullets(self):
         current_time = time.time()
         if current_time - self.last_shot_time >= 0.15:
-            bullet1 = Bullet(self.x, self.y, self.bullet_speed, 3)
+            bullet1 = Bullet(self.x, self.y, self.bullet_speed, 5)
             self.last_shot_time = current_time
             return [bullet1]
         else:

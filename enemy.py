@@ -9,6 +9,7 @@ class Enemy:
         self.speed = speed
         self.center_x = center_x
         self.center_y = center_y
+        self.hitbox = size # для казуалов
 
     def move(self):
         dx = self.center_x - self.x
