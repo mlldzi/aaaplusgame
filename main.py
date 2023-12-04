@@ -1,5 +1,4 @@
 import pygame
-
 from game import Game
 from render import render_game
 
@@ -11,14 +10,13 @@ def start():
     while running:
         game.window.fill(game.BLACK)
 
+        game.update_background()
         game.move_enemies()
         game.check_enemy_collisions()
         game.handle_enemy_spawning()
         game.handle_wave_transition()
-        game.update_background()
 
         render_game(game)
-
         game.player.move(game.size // 2, game.size // 2)
         pygame.display.update()
         game.clock.tick(60)
