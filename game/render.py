@@ -1,10 +1,12 @@
 import pygame
-import os
 import math
+import os
 
+heart_path = os.path.join("assets", "images", "heart.png")
+ship_path = os.path.join("assets", "images", "ship.png")
 
 def render_game(game):
-    ship_image = pygame.image.load(os.path.join(os.path.dirname(__file__), "ship.png"))
+    ship_image = pygame.image.load(ship_path)
     ship_image = pygame.transform.scale(ship_image, (50, 50))
 
     ship_x = int(game.player.x)
@@ -26,7 +28,7 @@ def render_game(game):
     for enemy in game.enemies:
         pygame.draw.circle(game.window, game.WHITE, (int(enemy.x), int(enemy.y)), int(enemy.size))
 
-    heart_image = pygame.image.load(os.path.join(os.path.dirname(__file__), "heart.png"))
+    heart_image = pygame.image.load(heart_path)
     heart_image = pygame.transform.scale(heart_image, (50, 50))
     heart_padding = 35
     for i in range(game.player.health):

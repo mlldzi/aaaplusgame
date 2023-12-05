@@ -1,10 +1,15 @@
 import pygame
-import math
 from stars import StarBackground
-from enemies_handler import EnemyHandler
-from enemies_spawning import EnemySpawning
 from player import Player
 from functions import *
+import sys
+import os
+
+module_dir = os.path.join(os.path.dirname(__file__), "..")
+sys.path.append(module_dir)
+
+from enemy.enemies_handler import EnemyHandler
+from enemy.enemies_spawning import EnemySpawning
 
 
 class Game:
@@ -66,7 +71,6 @@ class Game:
 
     def handle_wave_transition(self):
         self.enemy_spawning.handle_wave_transition()
-
 
     def update_background(self):
         self.background.update(self.clock.get_time() / 1000)

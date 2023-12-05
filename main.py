@@ -1,4 +1,7 @@
 import pygame
+import sys
+
+sys.path.append("game")
 from game import Game
 from render import render_game
 

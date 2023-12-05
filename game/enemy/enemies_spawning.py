@@ -1,8 +1,11 @@
 import pygame
 import random
-import math
+import sys
+import os
 
-from enemy import Enemy
+module_dir = os.path.join(os.path.dirname(__file__), "..")
+sys.path.append(module_dir)
+from enemy.enemy import Enemy
 
 
 class EnemySpawning:
@@ -32,7 +35,6 @@ class EnemySpawning:
         if self.enemies_spawned < self.wave_size and current_time - self.last_enemy_spawn_time > self.enemy_spawn_delay:
             self.spawn_new_enemy()
             self.last_enemy_spawn_time = current_time
-
 
     def handle_wave_transition(self):
         current_time = pygame.time.get_ticks()
