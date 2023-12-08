@@ -45,3 +45,4 @@ class EnemySpawning:
                 self.last_wave_time = current_time
                 self.wave_x = random.choice([0, self.size - self.enemy_size])
                 self.wave_y = random.randint(0, self.size - self.enemy_size)
+

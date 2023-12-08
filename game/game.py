@@ -24,7 +24,7 @@ class Game:
         self.WHITE = (255, 255, 255)
 
         self.player_size = 50
-        self.player_x = self.size // 2  # стартовые координаты, потом использую координаты из класса игрока
+        self.player_x = self.size // 2
         self.player_y = self.size - 100
         self.player_speed = 3
 
@@ -53,10 +53,15 @@ class Game:
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
             self.bullets.extend(self.player.create_bullets())
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return False
         return True
+
+    def check_click(self, obj_rect):
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()
+                if obj_rect.collidepoint(mouse_pos):
+                    return True
+        return False
 
     def move_enemies(self):
         self.enemy_handler.move_enemies()

@@ -2,31 +2,18 @@ import pygame
 import sys
 
 sys.path.append("game")
+sys.path.append("game/visual")
 from game import Game
-from render import render_game
+from events import handle_main_events
 
 
 def start():
     game = Game()
+    game.window = pygame.display.set_mode((game.size, game.size))
 
     running = True
     while running:
-        game.window.fill(game.BLACK)
-
-        game.update_background()
-        game.move_enemies()
-        game.check_enemy_collisions()
-        game.handle_enemy_spawning()
-        game.handle_wave_transition()
-
-        render_game(game)
-        game.player.move(game.size // 2, game.size // 2)
-        pygame.display.update()
-        game.clock.tick(60)
-
-        running = game.handle_events()
-        if not running:
-            break
+        handle_main_events(game)
 
     pygame.quit()
 

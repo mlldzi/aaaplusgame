@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65ea61e0-bec7-4b1d-b492-5271ae5f3e02" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/images/restart_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/start_BUTTON.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/visual/events.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/visual/render.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aaagame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aaagame.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/bullet.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/bullet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/enemy/enemies_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/enemy/enemies_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/enemy/enemies_spawning.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/enemy/enemies_spawning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/enemy/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/enemy/enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/render.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/stars.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/stars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2ZG0BgQQwyx5tx3d2b8aN8BLqL7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65ea61e0-bec7-4b1d-b492-5271ae5f3e02" name="Changes" comment="" />
+      <created>1702032984697</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702032984697</updated>
+      <workItem from="1702032986207" duration="5049000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
+    <option name="historyDtoById">
+      <map>
+        <entry key="47ea7a">
+          <value>
+            <ChatHistoryModel>
+              <option name="contextFilesPaths">
+                <list>
+                  <option value="$PROJECT_DIR$/game/enemy/enemies_handler.py" />
+                </list>
+              </option>
+              <option name="id" value="47ea7a" />
+              <option name="initiateTms" value="1702038003389" />
+              <option name="request" value="сделай чтобы если было 0 хп то выскакивавало окно рестарта" />
+              <option name="response" value="" />
+              <option name="responseDescription" value="To display a restart window when the player's health reaches 0, you can use a GUI library like Tkinter. Here's an example of how you can modify the code to achieve this:&#10;&#10;```python&#10;import math&#10;import sys&#10;import tkinter as tk&#10;from tkinter import messagebox&#10;&#10;&#10;class EnemyHandler:&#10;    def __init__(self, size, enemy_size, enemy_speed, wave_size, enemy_spawn_delay, wave_delay, enemies):&#10;        self.size = size&#10;        self.enemy_size = enemy_size&#10;        self.enemy_speed = enemy_speed&#10;        self.wave_size = wave_size&#10;        self.enemy_spawn_delay = enemy_spawn_delay&#10;        self.wave_delay = wave_delay&#10;        self.enemies = enemies&#10;&#10;    def move_enemies(self):&#10;        for enemy in self.enemies:&#10;            enemy.move()&#10;&#10;    def check_enemy_collisions_bullet(self, bullets):&#10;        bullets_to_remove = []&#10;        for bullet in bullets:&#10;            for enemy in self.enemies:&#10;                distance = math.sqrt((bullet.x - enemy.x) ** 2 + (bullet.y - enemy.y) ** 2)&#10;                if distance &lt; (bullet.radius + enemy.hitbox) / 2:&#10;                    bullets_to_remove.append(bullet)&#10;                    self.enemies.remove(enemy)&#10;                    break&#10;&#10;        for bullet in bullets_to_remove:&#10;            bullets.remove(bullet)&#10;&#10;    def check_enemy_collision_player(self, player):&#10;        for enemy in self.enemies:&#10;            if player.x &lt; enemy.x + enemy.hitbox and \&#10;                    player.x + player.size &gt; enemy.x and \&#10;                    player.y &lt; enemy.y + enemy.hitbox and \&#10;                    player.y + player.size &gt; enemy.y:&#10;                player.health -= 1&#10;                self.enemies.remove(enemy)&#10;                if player.health &lt;= 0:&#10;                    restart_game()&#10;&#10;def restart_game():&#10;    # Display a restart window using Tkinter&#10;    root = tk.Tk()&#10;    root.withdraw()&#10;    messagebox.showinfo(&quot;Game Over&quot;, &quot;You have lost all your health. Restart the game?&quot;)&#10;    # Perform the necessary actions to restart the game&#10;&#10;&#10;# Rest of the code...&#10;```&#10;&#10;In this modified code, the `restart_game()` function is called when the player's health reaches 0. It displays a message box using Tkinter asking the user if they want to restart the game. You can customize the restart logic inside the `restart_game()` function to perform the necessary actions to restart the game.&#10;&#10;Please note that you need to have Tkinter installed to use this code. You can install it using `pip install tkinter`." />
+              <option name="responseFileName" value="" />
+              <option name="responseFilePath" value="" />
+              <option name="responseTms" value="1702038013741" />
+              <option name="usedLocalFilePaths">
+                <list>
+                  <option value="$PROJECT_DIR$/game/enemy/enemies_handler.py" />
+                </list>
+              </option>
+            </ChatHistoryModel>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/aaagame$events.coverage" NAME="events Coverage Results" MODIFIED="1702037928716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game/visual" />
+    <SUITE FILE_PATH="coverage/aaagame$enemies_handler.coverage" NAME="enemies_handler Coverage Results" MODIFIED="1702038034989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game/enemy" />
+    <SUITE FILE_PATH="coverage/aaagame$player.coverage" NAME="player Coverage Results" MODIFIED="1702036455161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+    <SUITE FILE_PATH="coverage/aaagame$main.coverage" NAME="main Coverage Results" MODIFIED="1702037931784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/aaagame$game.coverage" NAME="game Coverage Results" MODIFIED="1702035795813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+    <SUITE FILE_PATH="coverage/aaagame$button_events.coverage" NAME="button_events Coverage Results" MODIFIED="1702033983930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+    <SUITE FILE_PATH="coverage/aaagame$render.coverage" NAME="render Coverage Results" MODIFIED="1702033575684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+  </component>
+</project>
