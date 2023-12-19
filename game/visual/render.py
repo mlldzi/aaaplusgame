@@ -33,6 +33,6 @@ def render_game(game):
     heart_padding = 35
     for i in range(game.player.health):
         heart_x = 10 + i * heart_padding
-        heart_y = 10
+        heart_y = game.size - 50
         heart_rect = pygame.Rect(heart_x, heart_y, 50,50)
         game.window.blit(heart_image, heart_rect)

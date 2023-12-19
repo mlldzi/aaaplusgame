@@ -1,33 +1,47 @@
 import pygame
 import random
-import sys
-import os
-
-module_dir = os.path.join(os.path.dirname(__file__), "..")
-sys.path.append(module_dir)
-from enemy.enemy import Enemy
+# import sys
+# import os
+#
+# from enemy.enemy import Enemy
+from enemy.enemy_types import EnemyType1, EnemyType2
+from functions import *
 
 
 class EnemySpawning:
-    def __init__(self, size, enemy_size, enemy_speed, wave_size, enemy_spawn_delay, wave_delay, enemies):
-        self.size = size
+    def __init__(self, game_size, enemy_size, enemy_speed, wave_size, enemy_spawn_delay, wave_delay, enemies):
+        self.game_size = game_size
         self.enemy_size = enemy_size
         self.enemy_speed = enemy_speed
+        self.enemies = enemies
+
         self.wave_size = wave_size
         self.enemy_spawn_delay = enemy_spawn_delay
         self.wave_delay = wave_delay
-        self.enemies = enemies
-        self.wave_x = random.choice([0, self.size - self.enemy_size])
-        self.wave_y = random.randint(0, self.size - self.enemy_size)
+
         self.enemies_spawned = 0
         self.last_enemy_spawn_time = pygame.time.get_ticks()
         self.current_wave = 0
         self.last_wave_time = pygame.time.get_ticks()
 
+        self.center = self.game_size // 2
+
     def spawn_new_enemy(self):
-        enemy_x = self.wave_x
-        enemy_y = self.wave_y
-        self.enemies.append(Enemy(enemy_x, enemy_y, self.enemy_size, self.enemy_speed, self.size // 2, self.size // 2))
+        if self.current_wave == 1:
+            current_type = EnemyType1
+            wave_x, wave_y, size, speed = get_enemy_coordinates(current_type)
+
+            enemy = current_type(wave_x, wave_y, size, speed, self.center, self.center)
+            self.enemies.append(enemy)
+        elif self.current_wave == 2:
+            current_type = EnemyType2
+            wave_x, wave_y, size, speed = get_enemy_coordinates(current_type)
+
+            enemy = current_type(wave_x, wave_y, size, speed, self.center, self.center)
+            self.enemies.append(enemy)
+        else:
+            pass
+
         self.enemies_spawned += 1
 
     def handle_enemy_spawning(self):
@@ -43,6 +57,3 @@ class EnemySpawning:
                 self.current_wave += 1
                 self.enemies_spawned = 0
                 self.last_wave_time = current_time
-                self.wave_x = random.choice([0, self.size - self.enemy_size])
-                self.wave_y = random.randint(0, self.size - self.enemy_size)
-

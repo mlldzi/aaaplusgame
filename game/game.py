@@ -28,9 +28,9 @@ class Game:
         self.player_y = self.size - 100
         self.player_speed = 3
 
-        self.max_enemies = 10
+        self.max_enemies = 6
         self.enemies = []
-        self.enemy_size = 30
+        self.enemy_size = 40
 
         self.bullets = []
         self.bullet_speed = 20
@@ -41,13 +41,13 @@ class Game:
         self.spawned_enemies = 0
 
         self.background = StarBackground(self.size)
-        self.enemy_spawning = EnemySpawning(self.size, self.enemy_size, 3, 6, 200, 2000, self.enemies)
-        self.enemy_handler = EnemyHandler(self.size, self.enemy_size, 3, 6, 200, 2000, self.enemies)
+        self.enemy_spawning = EnemySpawning(self.size, self.enemy_size, 3, self.max_enemies, 200, 2000, self.enemies)
+        self.enemy_handler = EnemyHandler(self.size, self.enemy_size, 3, self.max_enemies, 200, 2000, self.enemies)
         self.player = Player(self.player_size, self.player_x, self.player_y, self.player_speed, self.bullet_speed,
                              self.bullet_cooldown_time, self.clock)
 
     def scale_objects(self):
-        scale_objects(self.size, self.enemies, self.enemy_size)
+        scale_objects(self.size, self.enemies) # from functions
 
     def handle_events(self):
         keys = pygame.key.get_pressed()
