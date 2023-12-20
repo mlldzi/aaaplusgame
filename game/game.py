@@ -2,11 +2,6 @@ import pygame
 from stars import StarBackground
 from player import Player
 from functions import *
-import sys
-import os
-
-module_dir = os.path.join(os.path.dirname(__file__), "..")
-sys.path.append(module_dir)
 
 from enemy.enemies_handler import EnemyHandler
 from enemy.enemies_spawning import EnemySpawning
@@ -31,6 +26,9 @@ class Game:
         self.max_enemies = 6
         self.enemies = []
         self.enemy_size = 40
+        self.enemy_speed = 3
+        self.enemy_spawn_delay = 200
+        self.wave_delay = 2000
 
         self.bullets = []
         self.bullet_speed = 20
@@ -41,13 +39,15 @@ class Game:
         self.spawned_enemies = 0
 
         self.background = StarBackground(self.size)
-        self.enemy_spawning = EnemySpawning(self.size, self.enemy_size, 3, self.max_enemies, 200, 2000, self.enemies)
-        self.enemy_handler = EnemyHandler(self.size, self.enemy_size, 3, self.max_enemies, 200, 2000, self.enemies)
+        self.enemy_spawning = EnemySpawning(self.size, self.enemy_size, self.enemy_speed, self.max_enemies, self.enemy_spawn_delay,
+                                            self.wave_delay, self.enemies)
+        self.enemy_handler = EnemyHandler(self.size, self.enemy_size, self.enemy_speed, self.max_enemies, self.enemy_spawn_delay,
+                                          self.wave_delay, self.enemies)
         self.player = Player(self.player_size, self.player_x, self.player_y, self.player_speed, self.bullet_speed,
                              self.bullet_cooldown_time, self.clock)
 
     def scale_objects(self):
-        scale_objects(self.size, self.enemies) # from functions
+        scale_objects(self.size, self.enemies)  # from functions
 
     def handle_events(self):
         keys = pygame.key.get_pressed()

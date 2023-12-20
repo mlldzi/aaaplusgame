@@ -1,6 +1,4 @@
 import math
-
-
 class Enemy:
     def __init__(self, x, y, size, speed, center_x, center_y):
         self.x = x

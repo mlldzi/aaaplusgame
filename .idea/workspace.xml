@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65ea61e0-bec7-4b1d-b492-5271ae5f3e02" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/game/visual/stars.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/enemy/enemies_spawning.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/enemy/enemies_spawning.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/enemy/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/enemy/enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/enemy/enemy_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/enemy/enemy_types.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/stars.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/visual/render.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/visual/render.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/visual/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/visual/events.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,23 +43,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/tereh/OneDrive/Рабочий стол/vampsurv",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tereh/OneDrive/Рабочий стол/vampsurv&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="moin" type="PythonConfigurationType" factoryName="Python">
       <module name="aaagame" />
@@ -107,7 +106,9 @@
       <workItem from="1702804491864" duration="27000" />
       <workItem from="1702807213429" duration="388000" />
       <workItem from="1702807913653" duration="198000" />
-      <workItem from="1702982249441" duration="10546000" />
+      <workItem from="1702982249441" duration="11546000" />
+      <workItem from="1703026701796" duration="2324000" />
+      <workItem from="1703049508345" duration="7170000" />
     </task>
     <servers />
   </component>
@@ -120,165 +121,51 @@
   <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
     <option name="historyDtoById">
       <map>
-        <entry key="299760">
+        <entry key="555ed5">
           <value>
             <ChatHistoryModel>
               <option name="contextFilesPaths">
                 <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
+                  <option value="$PROJECT_DIR$/game/enemy/enemies_spawning.py" />
                 </list>
               </option>
-              <option name="id" value="299760" />
-              <option name="initiateTms" value="1702992891526" />
-              <option name="request" value="это понятно у меня вопрос скорее был в том что эти даныне нужны в файле functions но при этом мне бы не хотелось оставлять этот код здесь " />
+              <option name="id" value="555ed5" />
+              <option name="initiateTms" value="1703054247001" />
+              <option name="request" value="напиши полный код с измененеием" />
               <option name="response" value="" />
-              <option name="responseDescription" value="Если вы не хотите оставлять код, содержащий данные о типах врагов, в файле `functions.py`, вы можете вынести этот код в отдельный файл и импортировать его в `functions.py`. Это позволит вам разделить код на более модульные части и улучшить организацию проекта.&#10;&#10;Вот как вы можете это сделать:&#10;&#10;1. Создайте новый файл, например `enemy_types.py`, и переместите в него код, содержащий данные о типах врагов:&#10;&#10;```python&#10;enemy_types = {&#10;    &quot;EnemyType1&quot;: {&#10;        &quot;size&quot;: 40,&#10;        &quot;speed&quot;: 5,&#10;        &quot;spawn_x&quot;: 1000,&#10;        &quot;spawn_y&quot;: 1000&#10;    },&#10;    &quot;EnemyType2&quot;: {&#10;        &quot;size&quot;: 20,&#10;        &quot;speed&quot;: 3,&#10;        &quot;spawn_x&quot;: 0,&#10;        &quot;spawn_y&quot;: 750&#10;    }&#10;}&#10;```&#10;&#10;2. В файле `functions.py` добавьте следующую строку в начало файла, чтобы импортировать данные о типах врагов:&#10;&#10;```python&#10;from enemy_types import enemy_types&#10;```&#10;&#10;Теперь вы можете использовать переменную `enemy_types` в файле `functions.py`, как если бы она была определена непосредственно в этом файле. Это позволит вам использовать данные о типах врагов в функциях, определенных в `functions.py`, без необходимости оставлять код с данными в этом файле.&#10;&#10;Такой подход позволяет разделить данные и функциональность на разные файлы, что улучшает читаемость и поддерживаемость кода." />
+              <option name="responseDescription" value="Certainly! Here's the modified code with the changes:&#10;&#10;```python&#10;import pygame&#10;import random&#10;# import sys&#10;# import os&#10;#&#10;# from enemy.enemy import Enemy&#10;from enemy.enemy_types import EnemyType1, EnemyType2&#10;from functions import *&#10;&#10;&#10;class EnemySpawning:&#10;    def __init__(self, game_size, enemy_size, enemy_speed, wave_size, enemy_spawn_delay, wave_delay, enemies):&#10;        self.game_size = game_size&#10;        self.enemy_size = enemy_size&#10;        self.enemy_speed = enemy_speed&#10;        self.enemies = enemies&#10;&#10;        self.wave_size = wave_size&#10;        self.enemy_spawn_delay = enemy_spawn_delay&#10;        self.wave_delay = wave_delay&#10;&#10;        self.enemies_spawned = 0&#10;        self.last_enemy_spawn_time = pygame.time.get_ticks()&#10;        self.current_wave = 0&#10;        self.last_wave_time = pygame.time.get_ticks()&#10;&#10;        self.center = self.game_size // 2&#10;&#10;    def spawn_enemy(self, enemy_type):&#10;        wave_x, wave_y, size, speed = get_enemy_stats(enemy_type)&#10;        enemy = enemy_type(wave_x, wave_y, size, speed, self.center, self.center)&#10;        self.enemies.append(enemy)&#10;&#10;    def spawn_new_enemy(self):&#10;        if self.current_wave == 1:&#10;            self.spawn_enemy(EnemyType1)&#10;        elif self.current_wave == 2:&#10;            self.spawn_enemy(EnemyType2)&#10;        else:&#10;            pass&#10;&#10;        self.enemies_spawned += 1&#10;&#10;    def handle_enemy_spawning(self):&#10;        current_time = pygame.time.get_ticks()&#10;        if self.enemies_spawned &lt; self.wave_size and current_time - self.last_enemy_spawn_time &gt; self.enemy_spawn_delay:&#10;            self.spawn_new_enemy()&#10;            self.last_enemy_spawn_time = current_time&#10;&#10;    def handle_wave_transition(self):&#10;        current_time = pygame.time.get_ticks()&#10;        if self.enemies_spawned &gt;= self.wave_size and len(self.enemies) == 0:&#10;            if current_time - self.last_wave_time &gt; self.wave_delay:&#10;                self.current_wave += 1&#10;                self.enemies_spawned = 0&#10;                self.last_wave_time = current_time&#10;```&#10;&#10;I have added the `spawn_enemy` method to the `EnemySpawning` class. This method encapsulates the logic for spawning a new enemy based on the given enemy type. The `spawn_new_enemy` method now calls this `spawn_enemy` method with the appropriate enemy type based on the current wave. This refactoring makes the code more modular and eliminates the repetitive code." />
               <option name="responseFileName" value="" />
               <option name="responseFilePath" value="" />
-              <option name="responseTms" value="1702992900371" />
+              <option name="responseTms" value="1703054258258" />
               <option name="usedLocalFilePaths">
                 <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
+                  <option value="$PROJECT_DIR$/game/enemy/enemies_spawning.py" />
                 </list>
               </option>
             </ChatHistoryModel>
           </value>
         </entry>
-        <entry key="34e11e">
+        <entry key="c93e14">
           <value>
             <ChatHistoryModel>
               <option name="contextFilesPaths">
                 <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                  <option value="$PROJECT_DIR$/game/enemy/enemy_types.py" />
+                  <option value="$PROJECT_DIR$/game/enemy/enemies_spawning.py" />
+                  <option value="$PROJECT_DIR$/game/enemy/enemy.py" />
                 </list>
               </option>
-              <option name="id" value="34e11e" />
-              <option name="initiateTms" value="1702993702979" />
-              <option name="request" value="  File &quot;C:\Users\tereh\OneDrive\Рабочий стол\aaagame\game\functions.py&quot;, line 9, in scale_objects&#10;    enemy_type = enemies[0].enemy_type&#10;                 ~~~~~~~^^^&#10;IndexError: list index out of range" />
+              <option name="id" value="c93e14" />
+              <option name="initiateTms" value="1703054153515" />
+              <option name="request" value="if self.current_wave == 1:&#10;            current_type = EnemyType1&#10;            wave_x, wave_y, size, speed = get_enemy_stats(current_type)&#10;&#10;            enemy = current_type(wave_x, wave_y, size, speed, self.center, self.center)&#10;            self.enemies.append(enemy)&#10;        elif self.current_wave == 2:&#10;            current_type = EnemyType2&#10;            wave_x, wave_y, size, speed = get_enemy_stats(current_type)&#10;&#10;            enemy = current_type(wave_x, wave_y, size, speed, self.center, self.center)&#10;            self.enemies.append(enemy)&#10;&#10;можешь это как то вынести в функцию и тд" />
               <option name="response" value="" />
-              <option name="responseDescription" value="Из ошибки, которую вы получили, можно сделать вывод, что список `enemies` пустой, поэтому вы не можете получить доступ к его элементам.&#10;&#10;Чтобы избежать этой ошибки, вам следует проверить, содержит ли список `enemies` хотя бы один элемент, прежде чем пытаться получить доступ к его элементам. Вы можете использовать условную проверку, чтобы убедиться, что список не пустой, прежде чем получать информацию о типе врага.&#10;&#10;Вот пример, как вы можете изменить функцию `scale_objects` для проверки наличия элементов в списке `enemies`:&#10;&#10;```python&#10;def scale_objects(size, enemies, enemy_size):&#10;    if enemies:&#10;        enemy_type = enemies[0].enemy_type&#10;        print(enemy_type)&#10;        # остальной код функции&#10;    else:&#10;        print(&quot;Список врагов пуст.&quot;)&#10;```&#10;&#10;В этом примере мы добавили условие `if enemies:`, которое проверяет, содержит ли список `enemies` хотя бы один элемент. Если список не пустой, мы получаем информацию о типе врага. Если список пустой, мы выводим сообщение о том, что список врагов пуст.&#10;&#10;Убедитесь, что перед вызовом функции `scale_objects` вы правильно передаете список `enemies` с объектами врагов." />
+              <option name="responseDescription" value="Certainly! I can help you refactor the code by extracting the repetitive logic into a separate function. Here's the modified code:&#10;&#10;```python&#10;if self.current_wave == 1:&#10;    self.spawn_enemy(EnemyType1)&#10;elif self.current_wave == 2:&#10;    self.spawn_enemy(EnemyType2)&#10;&#10;def spawn_enemy(self, enemy_type):&#10;    wave_x, wave_y, size, speed = get_enemy_stats(enemy_type)&#10;    enemy = enemy_type(wave_x, wave_y, size, speed, self.center, self.center)&#10;    self.enemies.append(enemy)&#10;```&#10;&#10;In this refactored code, I created a new method called `spawn_enemy` that takes an `enemy_type` parameter. This method encapsulates the logic for spawning a new enemy of the given type. By calling this method with the appropriate enemy type, you can eliminate the repetitive code and make the code more modular and readable." />
               <option name="responseFileName" value="" />
               <option name="responseFilePath" value="" />
-              <option name="responseTms" value="1702993717513" />
+              <option name="responseTms" value="1703054161895" />
               <option name="usedLocalFilePaths">
                 <list>
-                  <option value="$PROJECT_DIR$/game/enemy/enemy_types.py" />
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                </list>
-              </option>
-            </ChatHistoryModel>
-          </value>
-        </entry>
-        <entry key="479e4c">
-          <value>
-            <ChatHistoryModel>
-              <option name="contextFilesPaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                </list>
-              </option>
-              <option name="id" value="479e4c" />
-              <option name="initiateTms" value="1702993605259" />
-              <option name="request" value="['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']&#10;как мне вытащить информацию о том какой это тип врага из такх методов" />
-              <option name="response" value="" />
-              <option name="responseDescription" value="Из списка методов, который вы получили, нет прямого способа узнать тип врага. Однако, если вы знаете, что объект `enemies` является экземпляром определенного класса, вы можете использовать функцию `type()` для определения типа объекта.&#10;&#10;Вот как вы можете использовать функцию `type()` для определения типа объекта `enemies`:&#10;&#10;```python&#10;enemy_type = type(enemies).__name__&#10;print(enemy_type)&#10;```&#10;&#10;Этот код выведет имя класса, к которому принадлежит объект `enemies`. Если объект `enemies` является экземпляром класса `EnemyType1`, то вывод будет `EnemyType1`. Если объект `enemies` является экземпляром класса `EnemyType2`, то вывод будет `EnemyType2`.&#10;&#10;Обратите внимание, что для использования этого подхода вам нужно знать, какой класс создает объект `enemies`. Если вы не знаете класс, то вам может потребоваться изучить код, чтобы определить, какой класс создает объект `enemies`." />
-              <option name="responseFileName" value="" />
-              <option name="responseFilePath" value="" />
-              <option name="responseTms" value="1702993612642" />
-              <option name="usedLocalFilePaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                </list>
-              </option>
-            </ChatHistoryModel>
-          </value>
-        </entry>
-        <entry key="9cd998">
-          <value>
-            <ChatHistoryModel>
-              <option name="id" value="9cd998" />
-              <option name="initiateTms" value="1702993597081" />
-              <option name="isStopped" value="true" />
-              <option name="request" value="как мне вытащить информацию о том какой это тип врага из такх методов " />
-              <option name="response" value="" />
-              <option name="usedLocalFilePaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                </list>
-              </option>
-            </ChatHistoryModel>
-          </value>
-        </entry>
-        <entry key="ba35ff">
-          <value>
-            <ChatHistoryModel>
-              <option name="contextFilesPaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                </list>
-              </option>
-              <option name="id" value="ba35ff" />
-              <option name="initiateTms" value="1702993185988" />
-              <option name="request" value="как узнать все доступные методы print(enemies.____)" />
-              <option name="response" value="" />
-              <option name="responseDescription" value="Чтобы узнать все доступные методы для объекта `enemies`, вы можете использовать функцию `dir()`. Функция `dir()` возвращает список всех атрибутов и методов объекта.&#10;&#10;В вашем случае, чтобы узнать все доступные методы для объекта `enemies`, вы можете использовать следующий код:&#10;&#10;```python&#10;print(dir(enemies))&#10;```&#10;&#10;Этот код выведет список всех методов и атрибутов объекта `enemies`. Вы можете изучить этот список, чтобы узнать, какие методы доступны для использования с объектом `enemies`." />
-              <option name="responseFileName" value="" />
-              <option name="responseFilePath" value="" />
-              <option name="responseTms" value="1702993191447" />
-              <option name="usedLocalFilePaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                </list>
-              </option>
-            </ChatHistoryModel>
-          </value>
-        </entry>
-        <entry key="bbef5e">
-          <value>
-            <ChatHistoryModel>
-              <option name="contextFilesPaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                  <option value="$PROJECT_DIR$/game/enemy/enemy_types.py" />
-                </list>
-              </option>
-              <option name="id" value="bbef5e" />
-              <option name="initiateTms" value="1702992847450" />
-              <option name="request" value="enemy_types = {&#10;    &quot;EnemyType1&quot;: {&#10;        &quot;size&quot;: 40,&#10;        &quot;speed&quot;: 5,&#10;        &quot;spawn_x&quot;: 1000,&#10;        &quot;spawn_y&quot;: 1000&#10;    },&#10;    &quot;EnemyType2&quot;: {&#10;        &quot;size&quot;: 20,&#10;        &quot;speed&quot;: 3,&#10;        &quot;spawn_x&quot;: 0,&#10;        &quot;spawn_y&quot;: 750&#10;    }&#10;}&#10;как лучше мне их хранить " />
-              <option name="response" value="" />
-              <option name="responseDescription" value="Ваш текущий подход к хранению типов врагов в словаре является довольно удобным и понятным. Он позволяет вам легко добавлять новые типы врагов и настраивать их параметры, такие как размер, скорость и координаты появления.&#10;&#10;Однако, если ваша игра будет иметь больше типов врагов или если вы планируете добавлять новые типы в будущем, может быть полезно рассмотреть альтернативные способы хранения данных. Некоторые из них включают использование базы данных, JSON-файлов или даже создание отдельного модуля для каждого типа врага.&#10;&#10;Вот несколько возможных вариантов:&#10;&#10;1. База данных: Вы можете использовать базу данных, такую как SQLite или MongoDB, для хранения информации о типах врагов. Это позволит вам легко добавлять, изменять и удалять типы врагов, а также выполнять сложные запросы к данным.&#10;&#10;2. JSON-файлы: Вы можете хранить информацию о типах врагов в отдельных JSON-файлах. Каждый файл будет содержать данные о конкретном типе врага. Это позволит вам легко добавлять и изменять типы врагов, а также делить информацию на более удобные для чтения и управления файлы.&#10;&#10;3. Отдельные модули: Вы можете создать отдельный модуль для каждого типа врага. Каждый модуль будет содержать класс, описывающий соответствующий тип врага, и его параметры. Это позволит вам легко добавлять новые типы врагов, а также иметь более структурированный и модульный подход к организации кода.&#10;&#10;Выбор способа хранения данных зависит от конкретных требований вашей игры и вашего предпочтения в организации кода. Рассмотрите эти варианты и выберите тот, который лучше всего соответствует вашим потребностям." />
-              <option name="responseFileName" value="" />
-              <option name="responseFilePath" value="" />
-              <option name="responseTms" value="1702992860043" />
-              <option name="usedLocalFilePaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/enemy/enemy_types.py" />
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                </list>
-              </option>
-            </ChatHistoryModel>
-          </value>
-        </entry>
-        <entry key="e45bb2">
-          <value>
-            <ChatHistoryModel>
-              <option name="contextFilesPaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
-                </list>
-              </option>
-              <option name="id" value="e45bb2" />
-              <option name="initiateTms" value="1702993682612" />
-              <option name="request" value="оно пишет что это список" />
-              <option name="response" value="" />
-              <option name="responseDescription" value="Из вашего списка методов видно, что объект `enemies` является списком. В этом случае, чтобы получить информацию о типе врага, вам нужно обратиться к элементу списка и использовать соответствующий атрибут или метод.&#10;&#10;Например, если каждый элемент списка `enemies` представляет собой объект врага, и у каждого объекта врага есть атрибут `enemy_type`, вы можете получить тип врага следующим образом:&#10;&#10;```python&#10;enemy_type = enemies[0].enemy_type&#10;print(enemy_type)&#10;```&#10;&#10;В этом примере мы предполагаем, что первый элемент списка `enemies` содержит информацию о типе врага. Если это не так, вам нужно будет указать правильный индекс элемента списка, который содержит информацию о типе врага.&#10;&#10;Обратите внимание, что для использования этого подхода вам нужно знать структуру объектов врагов в списке `enemies` и какие атрибуты или методы доступны для получения информации о типе врага." />
-              <option name="responseFileName" value="" />
-              <option name="responseFilePath" value="" />
-              <option name="responseTms" value="1702993687352" />
-              <option name="usedLocalFilePaths">
-                <list>
-                  <option value="$PROJECT_DIR$/game/functions.py" />
+                  <option value="$PROJECT_DIR$/game/enemy/enemies_spawning.py" />
+                  <option value="$PROJECT_DIR$/game/enemy/enemy.py" />
                 </list>
               </option>
             </ChatHistoryModel>
@@ -296,7 +183,7 @@
     <SUITE FILE_PATH="coverage/aaagame$main.coverage" NAME="main Coverage Results" MODIFIED="1702082233214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/aaagame$game.coverage" NAME="game Coverage Results" MODIFIED="1702035795813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
     <SUITE FILE_PATH="coverage/aaagame$enemies_spawning.coverage" NAME="enemies_spawning Coverage Results" MODIFIED="1702081629000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game/enemy" />
-    <SUITE FILE_PATH="coverage/main_py$moin.coverage" NAME="moin Coverage Results" MODIFIED="1702994393487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\tereh\OneDrive\Рабочий стол\aaagame" />
+    <SUITE FILE_PATH="coverage/main_py$moin.coverage" NAME="moin Coverage Results" MODIFIED="1703056358221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\tereh\OneDrive\Рабочий стол\aaagame" />
     <SUITE FILE_PATH="coverage/aaagame$button_events.coverage" NAME="button_events Coverage Results" MODIFIED="1702033983930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
     <SUITE FILE_PATH="coverage/aaagame$render.coverage" NAME="render Coverage Results" MODIFIED="1702033575684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
   </component>

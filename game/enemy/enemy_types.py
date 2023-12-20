@@ -2,8 +2,8 @@ from enemy.enemy import Enemy
 
 enemy_types = {
     "EnemyType1": {
-        "size":  40,
-        "speed": 5,
+        "size":  20,
+        "speed": 10,
         "spawn_x": 1000,
         "spawn_y": 1000
     },

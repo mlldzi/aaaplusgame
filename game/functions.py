@@ -31,7 +31,7 @@ def calculate_distance_to_center(self):
     return distance_to_center
 
 
-def get_enemy_coordinates(enemy_type):
+def get_enemy_stats(enemy_type):
     enemy_info = enemy_types[enemy_type.__name__]
     return enemy_info["spawn_x"], enemy_info["spawn_y"], enemy_info["size"], enemy_info["speed"]
 
