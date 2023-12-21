@@ -7,17 +7,19 @@ class Bullet:
         self.y = y
         self.speed = speed
         self.radius = radius
+        self.hitbox = radius
 
-    def move(self, player_x, player_y):
-        dx = player_x - self.x
-        dy = player_y - self.y
-        distance_to_player = math.sqrt(dx ** 2 + dy ** 2)
-        if distance_to_player > 1:
-            direction_x = dx / distance_to_player
-            direction_y = dy / distance_to_player
-            if distance_to_player > self.speed:
+    def move(self, center):
+        dx = center - self.x
+        dy = center - self.y
+        distance_to_center = math.sqrt(dx ** 2 + dy ** 2)
+        if distance_to_center > 25:
+            direction_x = dx / distance_to_center
+            direction_y = dy / distance_to_center
+            if distance_to_center > self.speed:
                 self.x += direction_x * self.speed
                 self.y += direction_y * self.speed
             else:
-                self.x = player_x
-                self.y = player_y
+                self.x = center
+                self.y = center
+

@@ -23,7 +23,7 @@ class Game:
         self.player_y = self.size - 100
         self.player_speed = 3
 
-        self.max_enemies = 6
+        self.max_enemies = 5
         self.enemies = []
         self.enemy_size = 40
         self.enemy_speed = 3
@@ -39,17 +39,20 @@ class Game:
         self.spawned_enemies = 0
 
         self.background = StarBackground(self.size)
-        self.enemy_spawning = EnemySpawning(self.size, self.enemy_size, self.enemy_speed, self.max_enemies, self.enemy_spawn_delay,
-                                            self.wave_delay, self.enemies)
-        self.enemy_handler = EnemyHandler(self.size, self.enemy_size, self.enemy_speed, self.max_enemies, self.enemy_spawn_delay,
-                                          self.wave_delay, self.enemies)
+        self.enemy_spawning = EnemySpawning(self.size, self.enemy_size, self.enemy_speed, self.max_enemies,
+                                            self.enemy_spawn_delay, self.wave_delay, self.enemies)
+        self.enemy_handler = EnemyHandler(self.size, self.enemy_size, self.enemy_speed, self.max_enemies,
+                                          self.enemy_spawn_delay, self.wave_delay, self.enemies, self.window)
         self.player = Player(self.player_size, self.player_x, self.player_y, self.player_speed, self.bullet_speed,
                              self.bullet_cooldown_time, self.clock)
 
     def scale_objects(self):
-        scale_objects(self.size, self.enemies)  # from functions
+        scale_enemies(self.size, self.enemies)
+        scale_bullets(self.size, self.bullets)
 
     def handle_events(self):
+        if not self.enemy_handler.check_enemy_collision_player(self.player):
+            return False
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
             self.bullets.extend(self.player.create_bullets())
@@ -69,7 +72,6 @@ class Game:
 
     def check_enemy_collisions(self):
         self.enemy_handler.check_enemy_collisions_bullet(self.bullets)
-        self.enemy_handler.check_enemy_collision_player(self.player)
 
     def handle_enemy_spawning(self):
         self.enemy_spawning.handle_enemy_spawning()

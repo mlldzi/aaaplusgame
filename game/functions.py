@@ -1,10 +1,21 @@
-import math
-import os
 import random
-from enemy.enemy_types import enemy_types
+from enemy.enemy_types import *
+from visual.render import *
 
 
-def scale_objects(size, enemies):
+def scale_bullets(size, bullets):
+    if bullets:
+        max_distance = (size - 100) // 2
+        for bullet in bullets:
+            dx = abs(size // 2 - bullet.x)
+            dy = abs(size // 2 - bullet.y)
+            distance_to_center = math.sqrt(dx ** 2 + dy ** 2)
+            percentage = (distance_to_center / max_distance)
+            bullet.radius = bullet.radius * percentage + 13
+            bullet.hitbox = bullet.radius * percentage + 15
+
+
+def scale_enemies(size, enemies):
     if enemies:
         enemy_type = enemies[0].__class__.__name__
         x = enemy_types[enemy_type]["spawn_x"]
@@ -20,20 +31,40 @@ def scale_objects(size, enemies):
             dy = abs(size // 2 - enemy.y)
             distance_to_center = math.sqrt(dx ** 2 + dy ** 2)
             percentage = (distance_to_center / max_distance)
-            enemy.size = enemy_size * percentage + 10
-            enemy.hitbox = enemy_size * (percentage + 2)
-
-
-def calculate_distance_to_center(self):
-    dx = abs(self.size // 2 - self.player.x)
-    dy = abs(self.size // 2 - self.player.y)
-    distance_to_center = math.sqrt(dx ** 2 + dy ** 2)
-    return distance_to_center
+            enemy.size = enemy_size * percentage + 20
+            enemy.hitbox = enemy_size * (percentage + 0.5)
 
 
 def get_enemy_stats(enemy_type):
     enemy_info = enemy_types[enemy_type.__name__]
     return enemy_info["spawn_x"], enemy_info["spawn_y"], enemy_info["size"], enemy_info["speed"]
+
+
+def calculate_enemy_rotation(previous_x, previous_y, current_x, current_y):
+    angle = math.atan2(current_x - previous_x, current_y - previous_y)
+    return math.degrees(angle) + 180
+
+
+def scale_image(image, size, size2):
+    return pygame.transform.scale(image, (size, size2))
+
+
+def rotate_image(image, angle):
+    return pygame.transform.rotate(image, math.degrees(angle))
+
+
+def rotate_enemy(enemy, previous_x, previous_y, x, y):
+    rotation_angle = calculate_enemy_rotation(previous_x, previous_y, x, y)
+    return pygame.transform.rotate(enemy, rotation_angle)
+
+
+def get_enemy_skin(enemy):
+    if isinstance(enemy, EnemyType1):
+        return SMALL_ENEMY_PATH
+    elif isinstance(enemy, EnemyType2):
+        return BIG_ENEMY_PATH
+    else:
+        return ""
 
 
 def russian_roulette():

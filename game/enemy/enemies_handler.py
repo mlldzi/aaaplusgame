@@ -1,9 +1,8 @@
 import math
-import sys
 
 
 class EnemyHandler:
-    def __init__(self, size, enemy_size, enemy_speed, wave_size, enemy_spawn_delay, wave_delay, enemies):
+    def __init__(self, size, enemy_size, enemy_speed, wave_size, enemy_spawn_delay, wave_delay, enemies, window):
         self.size = size
         self.enemy_size = enemy_size
         self.enemy_speed = enemy_speed
@@ -11,6 +10,7 @@ class EnemyHandler:
         self.enemy_spawn_delay = enemy_spawn_delay
         self.wave_delay = wave_delay
         self.enemies = enemies
+        self.window = window
 
     def move_enemies(self):
         for enemy in self.enemies:
@@ -21,7 +21,7 @@ class EnemyHandler:
         for bullet in bullets:
             for enemy in self.enemies:
                 distance = math.sqrt((bullet.x - enemy.x) ** 2 + (bullet.y - enemy.y) ** 2)
-                if distance < (bullet.radius + enemy.hitbox) / 2:
+                if distance < (bullet.hitbox + enemy.hitbox) / 2:
                     bullets_to_remove.append(bullet)
                     self.enemies.remove(enemy)
                     break
@@ -38,4 +38,5 @@ class EnemyHandler:
                 player.health -= 1
                 self.enemies.remove(enemy)
                 if player.health <= 0:
-                    sys.exit()
+                    return False
+        return True

@@ -26,41 +26,38 @@ def handle_main_events(game):
         game.window.fill(game.BLACK)
 
         game.update_background()
+        game.handle_enemy_spawning()
         game.move_enemies()
         game.check_enemy_collisions()
-        game.handle_enemy_spawning()
         game.handle_wave_transition()
+        game.player.move(game.size // 2, game.size // 2)
 
         render_game(game)
-        game.player.move(game.size // 2, game.size // 2)
         pygame.display.update()
         game.clock.tick(60)
 
-        running = game.handle_events()
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
-    while not running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
 
-        game.window.fill(game.BLACK)
-        game.window.blit(button_restart_img, button_restart_rect)
-        running = game.check_click(button_restart_rect)
-        pygame.display.update()
+        running = game.handle_events()
+        while not running:
+            game.window.fill(game.BLACK)
+            game.window.blit(button_restart_img, button_restart_rect)
+            running = game.check_click(button_restart_rect)
+            pygame.display.update()
 
-    game.enemies = []
-    game.bullets = []
-    game.killed_enemies = 0
-    game.spawned_enemies = 0
-    game.enemy_spawning = EnemySpawning(game.size, game.enemy_size, game.enemy_speed, game.max_enemies,
-                                        game.enemy_spawn_delay, game.wave_delay, game.enemies)
-    game.enemy_handler = EnemyHandler(game.size, game.enemy_size, game.enemy_speed, game.max_enemies,
-                                      game.enemy_spawn_delay, game.wave_delay, game.enemies)
-    game.player = Player(game.player_size, game.player_x, game.player_y, game.player_speed, game.bullet_speed,
-                         game.bullet_cooldown_time, game.clock)
+            if running:
+                game.enemies = []
+                game.bullets = []
+                game.killed_enemies = 0
+                game.spawned_enemies = 0
+                game.enemy_spawning = EnemySpawning(game.size, game.enemy_size, game.enemy_speed, game.max_enemies,
+                                                    game.enemy_spawn_delay, game.wave_delay, game.enemies)
+                game.enemy_handler = EnemyHandler(game.size, game.enemy_size, game.enemy_speed, game.max_enemies,
+                                                  game.enemy_spawn_delay, game.wave_delay, game.enemies, game.window)
+                game.player = Player(game.player_size, game.player_x, game.player_y, game.player_speed,
+                                     game.bullet_speed, game.bullet_cooldown_time, game.clock)
 
-    game.handle_enemy_spawning()
+                game.handle_enemy_spawning()
+                break

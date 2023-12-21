@@ -1,38 +1,68 @@
 import pygame
 import math
 import os
+from enemy.enemy_types import *
+from functions import *
 
-heart_path = os.path.join("assets", "images", "heart.png")
-ship_path = os.path.join("assets", "images", "ship.png")
+HEART_PATH = os.path.join("assets", "images", "heart.png")
+SHIP_PATH = os.path.join("assets", "images", "ship.png")
+SMALL_ENEMY_PATH = os.path.join("assets", "images", "small_enemy.png")
+BIG_ENEMY_PATH = os.path.join("assets", "images", "big_enemy_bug.png")
+PLANET_PATH = os.path.join("assets", "images", "planet_2.png")
+BULLET_PATH = os.path.join("assets", "images", "bullet_2.png")
+
 
 def render_game(game):
-    ship_image = pygame.image.load(ship_path)
-    ship_image = pygame.transform.scale(ship_image, (50, 50))
+    center = game.size // 2
+
+    planet_image = pygame.image.load(PLANET_PATH)
+    ship_image = pygame.image.load(SHIP_PATH)
+    heart_image = pygame.image.load(HEART_PATH)
+    bullet_image = pygame.image.load(BULLET_PATH)
+
+    planet_image = scale_image(planet_image, 50, 50)
+    ship_image = scale_image(ship_image, 50, 50)
+    heart_image = scale_image(heart_image, 50, 50)
+    bullet_image = scale_image(bullet_image, 8, 37)
+
+    planet_rect = planet_image.get_rect(center=(center, center))
+    game.window.blit(planet_image, planet_rect)
 
     ship_x = int(game.player.x)
     ship_y = int(game.player.y)
-
-    angle = math.atan2(ship_x - game.size // 2, ship_y - game.size // 2)
-    rotated_ship_image = pygame.transform.rotate(ship_image, math.degrees(angle))
-
+    angle = math.atan2(ship_x - center, ship_y - center)
+    rotated_ship_image = rotate_image(ship_image, angle)
     ship_rect = rotated_ship_image.get_rect(center=(ship_x, ship_y))
     game.window.blit(rotated_ship_image, ship_rect)
 
     for bullet in game.bullets:
-        bullet.move(game.size // 2, game.size // 2)
-        if abs(bullet.y - game.size // 2) < 1 and abs(bullet.x - game.size // 2) < 1:
+        bullet.move(center)
+        if abs(bullet.y - center) < 25 and abs(bullet.x - center) < 25:
             game.bullets.remove(bullet)
         else:
-            pygame.draw.circle(game.window, game.WHITE, (int(bullet.x), int(bullet.y)), bullet.radius)
+            angle = math.atan2(bullet.x - center, bullet.y - center)
+            rotated_bullet_image = rotate_image(bullet_image, angle)
+            scaled_bullet_image = pygame.transform.scale(rotated_bullet_image, (int(bullet.radius), int(bullet.radius)))
+            bullet_rect = scaled_bullet_image.get_rect(center=(int(bullet.x), int(bullet.y)))
+            game.window.blit(scaled_bullet_image, bullet_rect)
 
     for enemy in game.enemies:
-        pygame.draw.circle(game.window, game.WHITE, (int(enemy.x), int(enemy.y)), int(enemy.size))
+        enemy_image = pygame.image.load(get_enemy_skin(enemy))
+        enemy_image = scale_image(enemy_image, enemy.size, enemy.size)
 
-    heart_image = pygame.image.load(heart_path)
-    heart_image = pygame.transform.scale(heart_image, (50, 50))
+        if isinstance(enemy, EnemyType1):
+            rotated_enemy_image = rotate_enemy(enemy_image, enemy.previous_x, enemy.previous_y, enemy.x, enemy.y)
+            enemy.previous_x = enemy.x
+            enemy.previous_y = enemy.y
+        else:
+            rotated_enemy_image = enemy_image
+
+        enemy_rect = rotated_enemy_image.get_rect(center=(int(enemy.x), int(enemy.y)))
+        game.window.blit(rotated_enemy_image, enemy_rect)
+
     heart_padding = 35
     for i in range(game.player.health):
-        heart_x = 10 + i * heart_padding
-        heart_y = game.size - 50
-        heart_rect = pygame.Rect(heart_x, heart_y, 50,50)
+        heart_pos_x = 10 + i * heart_padding
+        heart_pos_y = game.size - 50
+        heart_rect = pygame.Rect(heart_pos_x, heart_pos_y, 50, 50)
         game.window.blit(heart_image, heart_rect)
