@@ -30,7 +30,7 @@ def scale_enemies(size, enemies):
             dx = abs(size // 2 - enemy.x)
             dy = abs(size // 2 - enemy.y)
             distance_to_center = math.sqrt(dx ** 2 + dy ** 2)
-            percentage = (distance_to_center / max_distance)
+            percentage = distance_to_center / max_distance
             enemy.size = enemy_size * percentage + 20
             enemy.hitbox = enemy_size * (percentage + 0.5)
 

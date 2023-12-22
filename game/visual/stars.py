@@ -44,15 +44,8 @@ class StarBackground:
             color = (b, b, b)
             pygame.draw.line(self.screen, color, star.end_pos, star.pos)
 
-        font = pygame.font.Font(None, 40)
-        warp_text = font.render("||| Warp {:0.1f} |||".format(self.warp_factor), True, (180, 160, 0))
-        self.screen.blit(warp_text, (self.size // 2 - warp_text.get_width() // 2, self.size - 40))
-
     def update(self, dt):
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_SPACE]:
-            self.warp_factor += self.acceleration * dt
-
+        self.warp_factor += self.acceleration * dt
         self.warp_factor = (
                 self.min_warp_factor +
                 (self.warp_factor - self.min_warp_factor) * self.drag ** dt

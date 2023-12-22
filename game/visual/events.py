@@ -1,10 +1,16 @@
 import pygame
 import os
 import sys
+import threading
 from render import render_game
 from player import Player
 from enemy.enemies_handler import EnemyHandler
 from enemy.enemies_spawning import EnemySpawning
+
+
+def start_enemy_spawning_thread(game):
+    enemy_spawning_thread = threading.Thread(target=game.handle_enemy_spawning)
+    enemy_spawning_thread.start()
 
 
 def handle_main_events(game):
@@ -26,7 +32,7 @@ def handle_main_events(game):
         game.window.fill(game.BLACK)
 
         game.update_background()
-        game.handle_enemy_spawning()
+        start_enemy_spawning_thread(game)
         game.move_enemies()
         game.check_enemy_collisions()
         game.handle_wave_transition()
@@ -58,6 +64,5 @@ def handle_main_events(game):
                                                   game.enemy_spawn_delay, game.wave_delay, game.enemies, game.window)
                 game.player = Player(game.player_size, game.player_x, game.player_y, game.player_speed,
                                      game.bullet_speed, game.bullet_cooldown_time, game.clock)
-
                 game.handle_enemy_spawning()
                 break
