@@ -8,6 +8,8 @@ HEART_PATH = os.path.join("assets", "images", "heart.png")
 SHIP_PATH = os.path.join("assets", "images", "ship.png")
 SMALL_ENEMY_PATH = os.path.join("assets", "images", "small_enemy.png")
 BIG_ENEMY_PATH = os.path.join("assets", "images", "big_enemy_bug.png")
+UFO_ENEMY_PATH = os.path.join("assets", "images", "small2_enemy.png")
+WAVY_ENEMY_PATH = os.path.join("assets", "images", "middle_enemy_bug.png")
 PLANET_PATH = os.path.join("assets", "images", "planet_2.png")
 BULLET_PATH = os.path.join("assets", "images", "bullet_2.png")
 
@@ -50,7 +52,7 @@ def render_game(game):
         enemy_image = pygame.image.load(get_enemy_skin(enemy))
         enemy_image = scale_image(enemy_image, enemy.size, enemy.size)
 
-        if isinstance(enemy, EnemyType1):
+        if isinstance(enemy, SpeedyBug) or isinstance(enemy, SpeedyBug2) or isinstance(enemy, WavyBug):
             rotated_enemy_image = rotate_enemy(enemy_image, enemy.previous_x, enemy.previous_y, enemy.x, enemy.y)
             enemy.previous_x = enemy.x
             enemy.previous_y = enemy.y

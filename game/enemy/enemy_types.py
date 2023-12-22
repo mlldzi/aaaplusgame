@@ -1,21 +1,37 @@
 from enemy.enemy import Enemy
 
 enemy_types = {
-    "EnemyType1": {
-        "size":  50,
+    "SpeedyBug": {
+        "size": 50,
         "speed": 10,
         "spawn_x": 0,
         "spawn_y": 1000
     },
-    "EnemyType2": {
-        "size": 100,
-        "speed": 3,
+    "SpeedyBug2": {
+        "size": 50,
+        "speed": 15,
+        "spawn_x": 200,
+        "spawn_y": 1000
+    }, "UFO": {
+        "size": 75,
+        "speed": 8,
         "spawn_x": 0,
-        "spawn_y": 750
+        "spawn_y": 500
+    }, "WavyBug": {
+        "size": 100,
+        "speed": 17,
+        "spawn_x": 0,
+        "spawn_y": 0
+    }, "BigBug": {
+        "size": 120,
+        "speed": 2,
+        "spawn_x": 500,
+        "spawn_y": 0
     }
 }
 
-class EnemyType1(Enemy):
+
+class SpeedyBug(Enemy):
     def __init__(self, x, y, size, speed, target_x, target_y):
         super().__init__(x, y, size, speed, target_x, target_y)
 
@@ -24,10 +40,37 @@ class EnemyType1(Enemy):
         pass
 
 
-class EnemyType2(Enemy):
+class SpeedyBug2(Enemy):
     def __init__(self, x, y, size, speed, target_x, target_y):
         super().__init__(x, y, size, speed, target_x, target_y)
 
     def update(self):
         # Logic for updating EnemyType2
+        pass
+
+
+class UFO(Enemy):
+    def __init__(self, x, y, size, speed, target_x, target_y):
+        super().__init__(x, y, size, speed, target_x, target_y)
+
+    def update(self):
+        # Logic for updating EnemyType1
+        pass
+
+
+class WavyBug(Enemy):
+    def __init__(self, x, y, size, speed, target_x, target_y):
+        super().__init__(x, y, size, speed, target_x, target_y)
+
+    def update(self):
+        # Logic for updating EnemyType1
+        pass
+
+
+class BigBug(Enemy):
+    def __init__(self, x, y, size, speed, target_x, target_y):
+        super().__init__(x, y, size, speed, target_x, target_y)
+
+    def update(self):
+        # Logic for updating EnemyType1
         pass

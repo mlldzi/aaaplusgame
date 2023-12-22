@@ -59,9 +59,13 @@ def rotate_enemy(enemy, previous_x, previous_y, x, y):
 
 
 def get_enemy_skin(enemy):
-    if isinstance(enemy, EnemyType1):
+    if isinstance(enemy, SpeedyBug) or isinstance(enemy, SpeedyBug2):
         return SMALL_ENEMY_PATH
-    elif isinstance(enemy, EnemyType2):
+    elif isinstance(enemy, UFO):
+        return UFO_ENEMY_PATH
+    elif isinstance(enemy, WavyBug):
+        return WAVY_ENEMY_PATH
+    elif isinstance(enemy, BigBug):
         return BIG_ENEMY_PATH
     else:
         return ""

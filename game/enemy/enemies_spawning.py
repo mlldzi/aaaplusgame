@@ -1,13 +1,15 @@
 import pygame
 import threading
-from enemy.enemy_types import EnemyType1, EnemyType2
+from enemy.enemy_types import *
 from functions import get_enemy_stats
 
 enemies_per_wave = {
     0: 0,
-    1: 10,
-    2: 16,
-    3: 20,
+    1: 8,
+    2: 10,
+    3: 12,
+    4: 8,
+    5: 9
 }
 
 
@@ -18,7 +20,7 @@ class EnemySpawning:
         self.enemy_speed = enemy_speed
         self.enemies = enemies
 
-        self.wave_size = wave_size  # max enemies per spawn in wave
+        self.wave_size = wave_size
         self.enemy_spawn_delay = enemy_spawn_delay
         self.wave_delay = wave_delay
 
@@ -51,22 +53,44 @@ class EnemySpawning:
             pygame.time.wait(self.enemy_spawn_delay)
 
     def spawn_new_enemy(self):
+        def spawn_enemy_helper(spawn_method, enemy_type, count):
+            threads.append(threading.Thread(target=spawn_method, args=(enemy_type, count)))
+
         threads = []
         if self.current_wave == 1:
-            threads.append(threading.Thread(target=self.spawn_enemy, args=(EnemyType1, 2)))
-            threads.append(threading.Thread(target=self.spawn_enemy_inversion, args=(EnemyType1, 3)))
-            threads.append(threading.Thread(target=self.spawn_enemy, args=(EnemyType2, 5)))
+            spawn_enemy_helper(self.spawn_enemy, SpeedyBug, 4)
+            spawn_enemy_helper(self.spawn_enemy_inversion, SpeedyBug, 4)
+
         elif self.current_wave == 2:
-            threads.append(threading.Thread(target=self.spawn_enemy, args=(EnemyType2, 10)))
-            threads.append(threading.Thread(target=self.spawn_enemy, args=(EnemyType1, 2)))
-            threads.append(threading.Thread(target=self.spawn_enemy_inversion, args=(EnemyType1, 4)))
+            spawn_enemy_helper(self.spawn_enemy, SpeedyBug2, 5)
+            spawn_enemy_helper(self.spawn_enemy_inversion, SpeedyBug2, 5)
+
+        elif self.current_wave == 3:
+            spawn_enemy_helper(self.spawn_enemy, UFO, 1)
+            spawn_enemy_helper(self.spawn_enemy_inversion, UFO, 1)
+            spawn_enemy_helper(self.spawn_enemy, SpeedyBug, 5)
+            spawn_enemy_helper(self.spawn_enemy_inversion, SpeedyBug, 5)
+
+        elif self.current_wave == 4:
+            spawn_enemy_helper(self.spawn_enemy, WavyBug, 2)
+            spawn_enemy_helper(self.spawn_enemy_inversion, WavyBug, 2)
+            spawn_enemy_helper(self.spawn_enemy, SpeedyBug2, 2)
+            spawn_enemy_helper(self.spawn_enemy_inversion, SpeedyBug2, 2)
+
+        elif self.current_wave == 5:
+            spawn_enemy_helper(self.spawn_enemy, WavyBug, 1)
+            spawn_enemy_helper(self.spawn_enemy_inversion, WavyBug, 1)
+            spawn_enemy_helper(self.spawn_enemy, UFO, 1)
+            spawn_enemy_helper(self.spawn_enemy_inversion, UFO, 1)
+            spawn_enemy_helper(self.spawn_enemy, BigBug, 1)
+            spawn_enemy_helper(self.spawn_enemy, SpeedyBug2, 2)
+            spawn_enemy_helper(self.spawn_enemy_inversion, SpeedyBug2, 2)
 
         for thread in threads:
             thread.start()
 
         for thread in threads:
             thread.join()
-
     def handle_enemy_spawning(self):
         current_time = pygame.time.get_ticks()
         if self.enemies_spawned == 0:
@@ -75,8 +99,8 @@ class EnemySpawning:
 
     def handle_wave_transition(self):
         current_time = pygame.time.get_ticks()
-        if self.enemies_spawned >= 0 and len(
-                self.enemies) == 0 and current_time - self.last_wave_time > self.wave_delay:
+        if (self.enemies_spawned >= 0 and
+                len(self.enemies) == 0 and current_time - self.last_wave_time > self.wave_delay):
             self.current_wave += 1
             self.enemies_spawned = 0
             self.last_wave_time = current_time
