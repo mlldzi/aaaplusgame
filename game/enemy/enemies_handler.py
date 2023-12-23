@@ -1,16 +1,19 @@
 import math
-
+import random
+from enemy.enemy_types import *
+from enemy.drop_bonus import Bonus
 
 class EnemyHandler:
-    def __init__(self, size, enemy_size, enemy_speed, wave_size, enemy_spawn_delay, wave_delay, enemies, window):
+    def __init__(self, size, enemy_size, enemy_speed, max_enemies, enemy_spawn_delay, wave_delay, enemies, window, bonuses):
         self.size = size
         self.enemy_size = enemy_size
         self.enemy_speed = enemy_speed
-        self.wave_size = wave_size
+        self.max_enemies = max_enemies
         self.enemy_spawn_delay = enemy_spawn_delay
         self.wave_delay = wave_delay
         self.enemies = enemies
         self.window = window
+        self.bonuses = bonuses
 
     def move_enemies(self):
         for enemy in self.enemies:
@@ -24,6 +27,10 @@ class EnemyHandler:
                 if distance < (bullet.hitbox + enemy.hitbox) / 2:
                     bullets_to_remove.append(bullet)
                     self.enemies.remove(enemy)
+                    if isinstance(enemy, UFO):
+                        bonus_type = random.choice(["repair", "moon_shard", "shield"])
+                        bonus = Bonus(enemy.x, enemy.y, bonus_type)
+                        self.bonuses.append(bonus)
                     break
 
         for bullet in bullets_to_remove:
@@ -35,7 +42,10 @@ class EnemyHandler:
                     player.x + player.size > enemy.x and \
                     player.y < enemy.y + enemy.hitbox and \
                     player.y + player.size > enemy.y:
-                player.health -= 1
+                if player.has_shield:
+                    player.has_shield = False
+                else:
+                    player.health -= 1
                 self.enemies.remove(enemy)
                 if player.health <= 0:
                     return False

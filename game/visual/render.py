@@ -12,6 +12,10 @@ UFO_ENEMY_PATH = os.path.join("assets", "images", "small2_enemy.png")
 WAVY_ENEMY_PATH = os.path.join("assets", "images", "middle_enemy_bug.png")
 PLANET_PATH = os.path.join("assets", "images", "planet_2.png")
 BULLET_PATH = os.path.join("assets", "images", "bullet_2.png")
+REPAIR_BOX_PATH = os.path.join("assets", "images", "repair_box.png")
+SHIELD_BOX_PATH = os.path.join("assets", "images", "shield_box.png")
+FIRE_RED_BOX_PATH = os.path.join("assets", "images", "fire_red_box.png")
+SHIELD_BUFF_PATH = os.path.join("assets", "images", "shield_buff.png")
 
 
 def render_game(game):
@@ -21,11 +25,13 @@ def render_game(game):
     ship_image = pygame.image.load(SHIP_PATH)
     heart_image = pygame.image.load(HEART_PATH)
     bullet_image = pygame.image.load(BULLET_PATH)
+    shield_buff_image = pygame.image.load(SHIELD_BUFF_PATH)
 
     planet_image = scale_image(planet_image, 50, 50)
     ship_image = scale_image(ship_image, 50, 50)
     heart_image = scale_image(heart_image, 50, 50)
     bullet_image = scale_image(bullet_image, 8, 37)
+    shield_buff_image = scale_image(shield_buff_image, 64, 15)
 
     planet_rect = planet_image.get_rect(center=(center, center))
     game.window.blit(planet_image, planet_rect)
@@ -61,6 +67,20 @@ def render_game(game):
 
         enemy_rect = rotated_enemy_image.get_rect(center=(int(enemy.x), int(enemy.y)))
         game.window.blit(rotated_enemy_image, enemy_rect)
+
+    for bonus in game.bonuses:
+        if bonus.bonus_type == "repair":
+            bonus_image = pygame.image.load(REPAIR_BOX_PATH)
+        elif bonus.bonus_type == "moon_shard":
+            bonus_image = pygame.image.load(FIRE_RED_BOX_PATH)
+        elif bonus.bonus_type == "shield":
+            bonus_image = pygame.image.load(SHIELD_BOX_PATH)
+
+        bonus.move(center)
+        bonus.check_bonus_collision(game.player, game.bonuses)
+        bonus_image = scale_image(bonus_image, bonus.size, bonus.size)
+        bonus_rect = bonus_image.get_rect(center=(int(bonus.x), int(bonus.y)))
+        game.window.blit(bonus_image, bonus_rect)
 
     heart_padding = 35
     for i in range(game.player.health):

@@ -55,13 +55,14 @@ def handle_main_events(game):
 
             if running:
                 game.enemies = []
+                game.bonuses = []
                 game.bullets = []
                 game.killed_enemies = 0
                 game.spawned_enemies = 0
                 game.enemy_spawning = EnemySpawning(game.size, game.enemy_size, game.enemy_speed, game.max_enemies,
                                                     game.enemy_spawn_delay, game.wave_delay, game.enemies)
                 game.enemy_handler = EnemyHandler(game.size, game.enemy_size, game.enemy_speed, game.max_enemies,
-                                                  game.enemy_spawn_delay, game.wave_delay, game.enemies, game.window)
+                                                  game.enemy_spawn_delay, game.wave_delay, game.enemies, game.window, game.bonuses)
                 game.player = Player(game.player_size, game.player_x, game.player_y, game.player_speed,
                                      game.bullet_speed, game.bullet_cooldown_time, game.clock)
                 game.handle_enemy_spawning()

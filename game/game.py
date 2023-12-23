@@ -5,7 +5,7 @@ from functions import *
 
 from enemy.enemies_handler import EnemyHandler
 from enemy.enemies_spawning import EnemySpawning
-
+from enemy.drop_bonus import Bonus
 
 class Game:
     def __init__(self):
@@ -29,20 +29,21 @@ class Game:
         self.enemy_speed = 3
         self.enemy_spawn_delay = 200
         self.wave_delay = 2000
+        self.bonuses = []
 
         self.bullets = []
         self.bullet_speed = 20
-        self.bullet_cooldown = 100
-        self.bullet_cooldown_time = 200
+        self.bullet_cooldown_time = 0.15
 
         self.killed_enemies = 0
         self.spawned_enemies = 0
+
 
         self.background = StarBackground(self.size)
         self.enemy_spawning = EnemySpawning(self.size, self.enemy_size, self.enemy_speed, self.max_enemies,
                                             self.enemy_spawn_delay, self.wave_delay, self.enemies)
         self.enemy_handler = EnemyHandler(self.size, self.enemy_size, self.enemy_speed, self.max_enemies,
-                                          self.enemy_spawn_delay, self.wave_delay, self.enemies, self.window)
+                                          self.enemy_spawn_delay, self.wave_delay, self.enemies, self.window, self.bonuses)
         self.player = Player(self.player_size, self.player_x, self.player_y, self.player_speed, self.bullet_speed,
                              self.bullet_cooldown_time, self.clock)
 

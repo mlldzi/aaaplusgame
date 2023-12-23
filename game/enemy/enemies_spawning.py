@@ -5,7 +5,7 @@ from functions import get_enemy_stats
 
 enemies_per_wave = {
     0: 0,
-    1: 8,
+    1: 2,
     2: 10,
     3: 12,
     4: 8,
@@ -58,8 +58,8 @@ class EnemySpawning:
 
         threads = []
         if self.current_wave == 1:
-            spawn_enemy_helper(self.spawn_enemy, SpeedyBug, 4)
-            spawn_enemy_helper(self.spawn_enemy_inversion, SpeedyBug, 4)
+            spawn_enemy_helper(self.spawn_enemy, SpeedyBug, 1)
+            spawn_enemy_helper(self.spawn_enemy_inversion, SpeedyBug, 1)
 
         elif self.current_wave == 2:
             spawn_enemy_helper(self.spawn_enemy, SpeedyBug2, 5)
@@ -91,6 +91,7 @@ class EnemySpawning:
 
         for thread in threads:
             thread.join()
+
     def handle_enemy_spawning(self):
         current_time = pygame.time.get_ticks()
         if self.enemies_spawned == 0:
