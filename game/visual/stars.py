@@ -46,10 +46,7 @@ class StarBackground:
 
     def update(self, dt):
         self.warp_factor += self.acceleration * dt
-        self.warp_factor = (
-                self.min_warp_factor +
-                (self.warp_factor - self.min_warp_factor) * self.drag ** dt
-        )
+        self.warp_factor = self.min_warp_factor + (self.warp_factor - self.min_warp_factor) * self.drag ** dt
 
         while len(self.stars) < 300:
             angle = random.uniform(-math.pi, math.pi)
@@ -70,8 +67,4 @@ class StarBackground:
             s.brightness = min(s.brightness + self.warp_factor * 200 * dt, s.speed)
             s.vel = vx * 2 ** dt, vy * 2 ** dt
 
-        self.stars = [
-            star
-            for star in self.stars
-            if self.bounds.collidepoint(star.end_pos)
-        ]
+        self.stars = [star for star in self.stars if self.bounds.collidepoint(star.end_pos)]

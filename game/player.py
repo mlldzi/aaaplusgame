@@ -36,14 +36,6 @@ class Player:
             self.x = center_x + radius * math.cos(angle)
             self.y = center_y + radius * math.sin(angle)
 
-        if keys[pygame.K_w]:
-            self.has_shield = True
-            if distance_to_center > 1:
-                self.x = center_x + shield_radius * math.cos(angle)
-                self.y = center_y + shield_radius * math.sin(angle)
-        if keys[pygame.K_s]:
-            self.has_shield = False
-
     def create_bullets(self):
         current_time = time.time()
         if current_time - self.last_shot_time >= self.bullet_cooldown_time:

@@ -28,6 +28,10 @@ def handle_main_events(game):
         running = game.check_click(button_start_rect)
         pygame.display.update()
 
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
     while running:
         game.window.fill(game.BLACK)
 

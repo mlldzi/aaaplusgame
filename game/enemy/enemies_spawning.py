@@ -9,7 +9,7 @@ enemies_per_wave = {
     2: 10,
     3: 12,
     4: 8,
-    5: 9
+    5: 5
 }
 
 
@@ -83,8 +83,6 @@ class EnemySpawning:
             spawn_enemy_helper(self.spawn_enemy, UFO, 1)
             spawn_enemy_helper(self.spawn_enemy_inversion, UFO, 1)
             spawn_enemy_helper(self.spawn_enemy, BigBug, 1)
-            spawn_enemy_helper(self.spawn_enemy, SpeedyBug2, 2)
-            spawn_enemy_helper(self.spawn_enemy_inversion, SpeedyBug2, 2)
 
         for thread in threads:
             thread.start()
@@ -103,6 +101,8 @@ class EnemySpawning:
         if (self.enemies_spawned >= 0 and
                 len(self.enemies) == 0 and current_time - self.last_wave_time > self.wave_delay):
             self.current_wave += 1
+            if self.current_wave == 6:
+                self.current_wave = 1
             self.enemies_spawned = 0
             self.last_wave_time = current_time
 
